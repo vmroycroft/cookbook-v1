@@ -1,6 +1,7 @@
 # Cookbook
 
 ![Version](https://img.shields.io/github/package-json/v/vmroycroft/cookbook)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/62b7c4cd-e09d-4f96-89b6-f09fddf0a145/deploy-status)](https://app.netlify.com/sites/confident-mirzakhani-2d3b11/deploys)
 
 A website for my family to share all of our favorite recipes.
 
@@ -22,7 +23,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
    npm start
    ```
 
-4. Open a browser and navigate to http://localhost:8888/
+4. Open a browser and navigate to http://localhost:3000/
 
 ## Building for production
 
