@@ -1,7 +1,6 @@
 # Cookbook
 
 ![Version](https://img.shields.io/github/package-json/v/vmroycroft/cookbook)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9ed2b0e7-2a28-436b-a2d8-2b5246fe0af5/deploy-status)](https://app.netlify.com/sites/cocky-kowalevski-ba6d94/deploys)
 
 A website for my family to share all of our favorite recipes.
 
