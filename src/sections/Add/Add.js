@@ -1,5 +1,6 @@
 import { useMutation } from '@apollo/client';
 import { Formik, Form } from 'formik';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import SectionTitle from '../../components/SectionTitle';
 import Button from '../../components/Button';
@@ -29,7 +30,7 @@ function Add() {
 	}
 
 	return (
-		<div className="h-screen bg-fuchsia-200">
+		<PerfectScrollbar className="h-screen bg-fuchsia-200">
 			<SectionTitle text="Add a recipe" bg="bg-fuchsia-300" />
 			<div className="p-4">
 				<Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit}>
@@ -47,7 +48,7 @@ function Add() {
 					</Form>
 				</Formik>
 			</div>
-		</div>
+		</PerfectScrollbar>
 	);
 }
 

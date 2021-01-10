@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
-import { selectCurrentRecipe } from '../../recipeSlice';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
+import { selectCurrentRecipe } from '../../recipeSlice';
 import SectionTitle from '../../components/SectionTitle';
 import Recipe from './Recipe';
 
@@ -14,10 +15,10 @@ function View() {
 	}
 
 	return (
-		<div className="h-screen bg-teal-200">
+		<PerfectScrollbar className="h-screen bg-teal-200">
 			<SectionTitle text="View a recipe" bg="bg-teal-300" />
 			<div className="p-4">{content}</div>
-		</div>
+		</PerfectScrollbar>
 	);
 }
 

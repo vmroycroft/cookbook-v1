@@ -1,7 +1,8 @@
 import { useQuery } from '@apollo/client';
 import { useDispatch } from 'react-redux';
-import { updateCurrentRecipe } from '../../recipeSlice';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
+import { updateCurrentRecipe } from '../../recipeSlice';
 import SectionTitle from '../../components/SectionTitle';
 import CategoryList from '../../components/CategoryList';
 
@@ -51,10 +52,10 @@ function Find() {
 	if (error) return <p>Error :(</p>;
 
 	return (
-		<div className="h-screen bg-lime-200">
+		<PerfectScrollbar className="h-screen bg-lime-200">
 			<SectionTitle text="Find a recipe" bg="bg-lime-300" />
 			<div className="p-4">{recipes}</div>
-		</div>
+		</PerfectScrollbar>
 	);
 }
 

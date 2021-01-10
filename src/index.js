@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import store from './store';
 
+import 'react-perfect-scrollbar/dist/css/styles.css';
 import './index.css';
 
 ReactDOM.render(
