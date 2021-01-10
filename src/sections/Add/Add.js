@@ -2,6 +2,7 @@ import { useMutation } from '@apollo/client';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import SectionTitle from '../../components/SectionTitle';
+import Button from '../../components/Button';
 
 import ADD_RECIPE from '../../graphql/mutations/addRecipe';
 
@@ -57,7 +58,7 @@ function Add() {
 							<Field as="textarea" name="directions" />
 							<ErrorMessage name="directions" component="div" />
 						</div>
-						<button type="submit">Add recipe</button>
+						<Button type="submit">Add recipe</Button>
 					</Form>
 				</Formik>
 			</div>
