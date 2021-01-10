@@ -11,12 +11,13 @@ import ADD_RECIPE from '../../graphql/mutations/addRecipe';
 function Add() {
 	const [addRecipe] = useMutation(ADD_RECIPE);
 
-	const initialValues = { name: '', category: '', ingredients: '', directions: '' };
+	const initialValues = { name: '', author: '', category: '', ingredients: '', directions: '' };
 
 	function validate(values) {
 		const errors = {};
 
 		if (!values.name) errors.name = 'Please enter a name for your recipe';
+		if (!values.author) errors.author = 'Please enter an author for your recipe';
 		if (!values.category) errors.category = 'Please select a category for your recipe';
 		if (!values.ingredients) errors.ingredients = 'Please enter ingredients for your recipe';
 		if (!values.directions) errors.directions = 'Please enter directions for your recipe';
@@ -30,7 +31,7 @@ function Add() {
 	 * @param {*} actions Form actions passed from Formik
 	 */
 	function onSubmit(values, actions) {
-		// addRecipe expects name, category, ingredients, directions
+		// addRecipe expects name, author, category, ingredients, directions
 		addRecipe({ variables: { ...values } });
 
 		actions.resetForm();
@@ -45,6 +46,7 @@ function Add() {
 					{({ isSubmitting, status }) => (
 						<Form>
 							<FormField label="Name" />
+							<FormField label="Author" />
 							<FormField label="Category">
 								<option value="">Select a category</option>
 								<option value="dessert">Dessert</option>

@@ -5,6 +5,7 @@ const GET_RECIPES = gql`
 		recipes {
 			id
 			name
+			author
 			category
 			ingredients
 			directions
