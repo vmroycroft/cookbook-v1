@@ -16,7 +16,7 @@ function Find() {
 	 * -----------------------------
 	 */
 
-	const { loading, error, data } = useQuery(GET_RECIPES);
+	const { loading, error, data } = useQuery(GET_RECIPES, { pollInterval: 500 });
 	let recipes = [];
 	if (data) {
 		recipes = data.recipes.map((recipe) => {
