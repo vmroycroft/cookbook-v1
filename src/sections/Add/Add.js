@@ -11,12 +11,12 @@ import ADD_RECIPE from '../../graphql/mutations/addRecipe';
 function Add() {
 	const [addRecipe] = useMutation(ADD_RECIPE);
 
-	const initialValues = { recipeName: '', category: '', ingredients: '', directions: '' };
+	const initialValues = { name: '', category: '', ingredients: '', directions: '' };
 
 	function validate(values) {
 		const errors = {};
 
-		if (!values.recipeName) errors.recipeName = 'Please enter a name for your recipe';
+		if (!values.name) errors.name = 'Please enter a name for your recipe';
 		if (!values.category) errors.category = 'Please select a category for your recipe';
 		if (!values.ingredients) errors.ingredients = 'Please enter ingredients for your recipe';
 		if (!values.directions) errors.directions = 'Please enter directions for your recipe';
@@ -24,9 +24,17 @@ function Add() {
 		return errors;
 	}
 
-	function onSubmit(values) {
-		// addRecipe expects recipeName, category, ingredients, directions
+	/**
+	 *
+	 * @param {*} values Form values passed from Formik
+	 * @param {*} actions Form actions passed from Formik
+	 */
+	function onSubmit(values, actions) {
+		// addRecipe expects name, category, ingredients, directions
 		addRecipe({ variables: { ...values } });
+
+		actions.resetForm();
+		actions.setStatus('Your recipe has been added!');
 	}
 
 	return (
@@ -34,18 +42,23 @@ function Add() {
 			<SectionTitle text="Add a recipe" bg="bg-fuchsia-300" />
 			<div className="p-4">
 				<Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit}>
-					<Form>
-						<FormField label="Recipe name" />
-						<FormField label="Category">
-							<option value="">Select a category</option>
-							<option value="dessert">Dessert</option>
-							<option value="breakfast">Breakfast</option>
-							<option value="dinner">Dinner</option>
-						</FormField>
-						<FormField as="textarea" label="Ingredients" />
-						<FormField as="textarea" label="Directions" />
-						<Button type="submit">Add recipe</Button>
-					</Form>
+					{({ isSubmitting, status }) => (
+						<Form>
+							<FormField label="Name" />
+							<FormField label="Category">
+								<option value="">Select a category</option>
+								<option value="dessert">Dessert</option>
+								<option value="breakfast">Breakfast</option>
+								<option value="dinner">Dinner</option>
+							</FormField>
+							<FormField as="textarea" label="Ingredients" />
+							<FormField as="textarea" label="Directions" />
+							<Button type="submit" disabled={isSubmitting}>
+								Add recipe
+							</Button>
+							<span className="ml-4 text-green-600">{status}</span>
+						</Form>
+					)}
 				</Formik>
 			</div>
 		</PerfectScrollbar>
