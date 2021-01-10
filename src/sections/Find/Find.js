@@ -23,7 +23,7 @@ function Find() {
 			const { id, name, category } = recipe;
 
 			return (
-				<div key={id} onClick={() => viewRecipe(recipe)} className="mb-4">
+				<div key={id} onClick={() => viewRecipe(recipe)} className="cursor-pointer mb-4">
 					<div>{name}</div>
 					<CategoryList categories={category} />
 				</div>
