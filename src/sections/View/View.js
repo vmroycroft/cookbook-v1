@@ -1,17 +1,17 @@
 import { useSelector } from 'react-redux';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
-import { selectCurrentRecipe } from '../../recipeSlice';
+import { getRecipe } from '../../state/recipeSlice';
 import SectionTitle from '../../components/SectionTitle';
 import Recipe from './Recipe';
 
 function View() {
-	const currentRecipe = useSelector(selectCurrentRecipe);
+	const recipe = useSelector(getRecipe);
 
 	let content;
-	if (!currentRecipe) content = <div>Select a recipe to view it</div>;
+	if (!recipe) content = <div>Select a recipe to view it</div>;
 	else {
-		content = <Recipe {...currentRecipe} />;
+		content = <Recipe {...recipe} />;
 	}
 
 	return (

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import reportWebVitals from './reportWebVitals';
 import App from './App';
-import store from './store';
+import store from './state/store';
 
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import './index.css';
