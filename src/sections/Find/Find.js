@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { useDispatch } from 'react-redux';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import intersection from 'lodash/intersection';
+import difference from 'lodash/difference';
 import union from 'lodash/union';
 
 import { setRecipe } from '../../state/recipeSlice';
@@ -60,11 +60,11 @@ function Find() {
 
 	function getRecipesJsx() {
 		// if no category is selected, show all recipes
-		// otherwise, show recipes for the selected categories
+		// otherwise, show recipes that belong to all selected categories
 		const filteredRecipes =
 			selectedCategories.length === 0
 				? recipes
-				: recipes.filter((recipe) => intersection(selectedCategories, recipe.category).length > 0);
+				: recipes.filter((recipe) => difference(selectedCategories, recipe.category).length === 0);
 
 		return filteredRecipes.map((recipe) => {
 			const { id, name } = recipe;
