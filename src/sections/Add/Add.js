@@ -25,7 +25,24 @@ function Add() {
 	if (data) {
 		const categoryData = data.categories;
 
-		categories = categoryData.map((category) => {
+		const extraCategories = [
+			{ name: 'lunch' },
+			{ name: 'beverages' },
+			{ name: 'appetizers' },
+			{ name: 'soups' },
+			{ name: 'salads' },
+			{ name: 'beef' },
+			{ name: 'poultry' },
+			{ name: 'pork' },
+			{ name: 'seafood' },
+			{ name: 'vegetarian' },
+			{ name: 'sides' },
+			{ name: 'bread' },
+			{ name: 'slow cooker' },
+			{ name: 'sandwiches' }
+		];
+
+		categories = [...categoryData, ...extraCategories].map((category) => {
 			const { name } = category;
 
 			return <FormField key={name} type="checkbox" label={name} />;
@@ -92,7 +109,7 @@ function Add() {
 							<div className="mb-4">
 								<span>Category</span>
 								<ErrorMessage name="category" component="span" className="text-red-700 text-xs ml-4" />
-								<div className="mt-2">{categories}</div>
+								<div className="mt-2 flex flex-wrap">{categories}</div>
 							</div>
 							<FormField type="textarea" label="Ingredients" />
 							<FormField type="textarea" label="Directions" />
