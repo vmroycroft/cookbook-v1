@@ -50,7 +50,7 @@ function Find() {
 				<Category
 					key={category}
 					text={category}
-					className="cursor-pointer"
+					className="cursor-pointer mt-2"
 					onClick={() => handleCategoryClick(category)}
 					selected={selectedCategories.includes(category)}
 				/>
@@ -127,7 +127,7 @@ function Find() {
 			<SectionTitle text="Find a recipe" bg="bg-lime-300" />
 			<div className="p-4">
 				<div className="text-lg">Categories</div>
-				<div>{getCategoriesJsx()}</div>
+				<div className="flex flex-wrap">{getCategoriesJsx()}</div>
 				<div className="text-lg mt-8">Recipes</div>
 				<div>{getRecipesJsx()}</div>
 			</div>
