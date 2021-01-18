@@ -30,16 +30,9 @@ function Add() {
 			{ name: 'beverages' },
 			{ name: 'appetizers' },
 			{ name: 'soups' },
-			{ name: 'salads' },
-			{ name: 'beef' },
-			{ name: 'poultry' },
-			{ name: 'pork' },
 			{ name: 'seafood' },
 			{ name: 'vegetarian' },
-			{ name: 'sides' },
-			{ name: 'bread' },
-			{ name: 'slow cooker' },
-			{ name: 'sandwiches' }
+			{ name: 'bread' }
 		];
 
 		categories = [...categoryData, ...extraCategories].map((category) => {
