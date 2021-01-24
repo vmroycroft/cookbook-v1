@@ -3,7 +3,7 @@ function Button({ type = 'button', onClick, className, children }) {
 		<button
 			type={type}
 			onClick={onClick}
-			className={`${className} bg-amber-300 py-2 px-4 rounded-md shadow-md hover:bg-amber-400 focus:outline-none focus:ring focus:ring-opacity-30 focus:ring-amber-400`}
+			className={`${className} bg-blue-gray-700 uppercase text-xs text-white p-2 shadow-md hover:bg-blue-gray-600 focus:outline-none focus:ring focus:ring-opacity-30 focus:ring-blue-gray-700`}
 		>
 			{children}
 		</button>

@@ -14,11 +14,13 @@ function Ingredients({ ingredients }) {
 	return (
 		<div className="mt-4">
 			<h3>
-				Ingredients
-				<FaRegCopy title="Copy" className="cursor-pointer inline-block ml-2" onClick={copy}>
-					Copy
-				</FaRegCopy>
-				{copied && <span className="text-xs ml-2 text-green-600">Copied!</span>}
+				<span className="text-2xl text-teal-500 uppercase">Ingredients</span>
+				<div className="inline-block ml-2">
+					<FaRegCopy title="Copy" className="cursor-pointer inline-block" onClick={copy}>
+						Copy
+					</FaRegCopy>
+					{copied && <span className="text-xs ml-2 text-green-600">Copied!</span>}
+				</div>
 			</h3>
 			<div className="whitespace-pre-wrap">{ingredients}</div>
 		</div>

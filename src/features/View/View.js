@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+// import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import { getRecipe } from '../../state/recipeSlice';
 import SectionTitle from '../../components/SectionTitle';
@@ -15,10 +15,12 @@ function View() {
 	}
 
 	return (
-		<PerfectScrollbar className="h-screen bg-teal-200">
-			<SectionTitle text="View a recipe" bg="bg-teal-300" />
+		// <PerfectScrollbar>
+		<div className="h-full overflow-y-scroll overflow-x-auto p-2 border-2 border-teal-500">
+			<SectionTitle text="View" color="teal-500" />
 			<div className="p-4">{content}</div>
-		</PerfectScrollbar>
+		</div>
+		// </PerfectScrollbar>
 	);
 }
 

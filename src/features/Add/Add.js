@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { ErrorMessage, Formik, Form } from 'formik';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+// import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import SectionTitle from '../../components/SectionTitle';
 import Button from '../../components/Button';
@@ -91,21 +91,22 @@ function Add() {
 	if (error) return <p>Error :(</p>;
 
 	return (
-		<PerfectScrollbar className="h-screen bg-fuchsia-200">
-			<SectionTitle text="Add a recipe" bg="bg-fuchsia-300" />
+		// <PerfectScrollbar>
+		<div className="h-full overflow-auto p-2 border-2 border-yellow-500">
+			<SectionTitle text="Add" color="yellow-500" />
 			<div className="p-4">
 				<Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit}>
 					{({ isSubmitting, status }) => (
 						<Form>
-							<FormField type="text" label="Name" />
-							<FormField type="text" label="Author" />
+							<FormField type="text" label="Name" color="text-yellow-500" />
+							<FormField type="text" label="Author" color="text-yellow-500" />
 							<div className="mb-4">
-								<span>Category</span>
+								<span className="uppercase text-yellow-500">Category</span>
 								<ErrorMessage name="category" component="span" className="text-red-700 text-xs ml-4" />
 								<div className="mt-2 flex flex-wrap">{categories}</div>
 							</div>
-							<FormField type="textarea" label="Ingredients" />
-							<FormField type="textarea" label="Directions" />
+							<FormField type="textarea" label="Ingredients" color="text-yellow-500" />
+							<FormField type="textarea" label="Directions" color="text-yellow-500" />
 							<Button type="submit" disabled={isSubmitting}>
 								Add recipe
 							</Button>
@@ -114,7 +115,8 @@ function Add() {
 					)}
 				</Formik>
 			</div>
-		</PerfectScrollbar>
+		</div>
+		// </PerfectScrollbar>
 	);
 }
 

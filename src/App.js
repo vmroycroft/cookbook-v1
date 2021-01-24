@@ -1,8 +1,8 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
-import Find from './sections/Find';
-import View from './sections/View';
-import Add from './sections/Add';
+import Find from './features/Find';
+import View from './features/View';
+import Add from './features/Add';
 
 function App() {
 	const client = new ApolloClient({
@@ -12,7 +12,7 @@ function App() {
 
 	return (
 		<ApolloProvider client={client}>
-			<div className="grid grid-cols-1 lg:grid-cols-3">
+			<div className="p-2 h-screen gap-2 grid grid-cols-1 lg:grid-cols-3">
 				<Find />
 				<View />
 				<Add />

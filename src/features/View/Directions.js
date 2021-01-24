@@ -1,7 +1,7 @@
 function Directions({ directions }) {
 	return (
 		<div className="mt-4">
-			<h3>Directions</h3>
+			<div className="text-2xl text-teal-500 uppercase">Directions</div>
 			<div className="whitespace-pre-wrap">{directions}</div>
 		</div>
 	);

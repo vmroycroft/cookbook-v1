@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { useDispatch } from 'react-redux';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+// import PerfectScrollbar from 'react-perfect-scrollbar';
 import difference from 'lodash/difference';
 import union from 'lodash/union';
 
 import { setRecipe } from '../../state/recipeSlice';
 import SectionTitle from '../../components/SectionTitle';
-import Category from '../../components/Category';
+import Toggle from '../../components/Toggle';
 
 import GET_RECIPES from '../../graphql/queries/getRecipes';
 
@@ -47,13 +47,9 @@ function Find() {
 	function getCategoriesJsx() {
 		return categories.map((category) => {
 			return (
-				<Category
-					key={category}
-					text={category}
-					className="cursor-pointer mt-2"
-					onClick={() => handleCategoryClick(category)}
-					selected={selectedCategories.includes(category)}
-				/>
+				<Toggle key={category} className="mt-2 mr-2" onClick={() => handleCategoryClick(category)} selected={selectedCategories.includes(category)}>
+					{category}
+				</Toggle>
 			);
 		});
 	}
@@ -61,17 +57,14 @@ function Find() {
 	function getRecipesJsx() {
 		// if no category is selected, show all recipes
 		// otherwise, show recipes that belong to all selected categories
-		const filteredRecipes =
-			selectedCategories.length === 0
-				? recipes
-				: recipes.filter((recipe) => difference(selectedCategories, recipe.category).length === 0);
+		const filteredRecipes = selectedCategories.length === 0 ? recipes : recipes.filter((recipe) => difference(selectedCategories, recipe.category).length === 0);
 
 		return filteredRecipes.map((recipe) => {
 			const { id, name } = recipe;
 
 			return (
-				<div key={id} onClick={() => viewRecipe(recipe)} className="cursor-pointer">
-					<div>{name}</div>
+				<div key={id} onClick={() => viewRecipe(recipe)} className="cursor-pointer py-1">
+					{name}
 				</div>
 			);
 		});
@@ -123,15 +116,18 @@ function Find() {
 	if (error) return <p>Error :(</p>;
 
 	return (
-		<PerfectScrollbar className="h-screen bg-lime-200">
-			<SectionTitle text="Find a recipe" bg="bg-lime-300" />
+		// <PerfectScrollbar>
+		<div className="h-full overflow-y-scroll overflow-x-auto p-2 border-2 border-red-400">
+			<SectionTitle text="Find" color="red-400" />
 			<div className="p-4">
-				<div className="text-lg">Categories</div>
-				<div className="flex flex-wrap">{getCategoriesJsx()}</div>
-				<div className="text-lg mt-8">Recipes</div>
-				<div>{getRecipesJsx()}</div>
+				{/* <div className="mb-4">Search goes here</div> */}
+				<div className="text-2xl text-red-400 uppercase">Categories</div>
+				<div className="flex flex-wrap mb-4">{getCategoriesJsx()}</div>
+				<div className="text-2xl text-red-400 uppercase">Recipes</div>
+				<div className="divide-y">{getRecipesJsx()}</div>
 			</div>
-		</PerfectScrollbar>
+		</div>
+		// </PerfectScrollbar>
 	);
 }
 
